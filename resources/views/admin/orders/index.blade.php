@@ -38,7 +38,7 @@
                         {{ ucfirst($order->status) }}
                     </span>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap">{{ number_format($order->total, 2) }} DH</td>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ rupiah($order->total) }}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                         <a href="{{ route('admin.orders.show', $order) }}" class="text-emerald-600 hover:text-emerald-900 mr-3">View</a>
                     </td>

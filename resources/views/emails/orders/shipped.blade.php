@@ -5,7 +5,7 @@
 Thank you for your order! Your invoice is attached.
 
 **Order ID:** #{{ $order->id }}  
-**Order Total:** {{ number_format($order->total, 2) }} DH  
+**Order Total:** {{ rupiah($order->total) }}  
 **Payment Method:** {{ ucfirst($order->payment_method) }}
 
 @component('mail::button', ['url' => ''])

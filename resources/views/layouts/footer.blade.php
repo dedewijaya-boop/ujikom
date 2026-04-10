@@ -4,13 +4,14 @@
             <!-- Logo and About -->
             <div class="md:col-span-2">
                 <div class="flex items-center mb-6">
-                    <img width="32" height="32" src="https://img.icons8.com/color/48/emerald.png" alt="logo emeraud" />
+                    <img src="{{ asset('images/lasvara-decor-indonesia.png') }}" class="h-10 w-auto" alt="Logo Lasvara">
                     <span class="text-2xl font-bold ml-2 bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
-                        Emeraude Jewelry
+                        Lasvara Decor ID
                     </span>
                 </div>
                 <p class="text-gray-300 mb-6">
-                    Créateurs de bijoux exceptionnels depuis 2010. Chaque pièce est artisanale et conçue avec passion.
+                    Pencipta perhiasan istimewa sejak tahun 2010. Setiap perhiasan dibuat
+                    dengan tangan dan dirancang dengan penuh semangat.
                 </p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-gray-300 hover:text-emerald-300 transition-colors">
@@ -36,10 +37,10 @@
 
             <!-- Quick Links -->
             <div>
-                <h3 class="text-lg font-semibold text-emerald-300 mb-6">Liens Rapides</h3>
+                <h3 class="text-lg font-semibold text-emerald-300 mb-6">Tautan Cepat</h3>
                 <ul class="space-y-3">
-                    <li><a href="/shop?sort=newest" class="text-gray-300 hover:text-amber-300 transition-colors">Nouveautés</a></li>
-                    <li><a href="shop?sort=popular" class="text-gray-300 hover:text-amber-300 transition-colors">Best Sellers</a></li>
+                    <li><a href="/shop?sort=newest" class="text-gray-300 hover:text-amber-300 transition-colors">Produk baru</a></li>
+                    <li><a href="shop?sort=popular" class="text-gray-300 hover:text-amber-300 transition-colors">Produk terlaris</a></li>
 
 
                 </ul>
@@ -47,38 +48,38 @@
 
             <!-- Customer Service -->
             <div>
-                <h3 class="text-lg font-semibold text-emerald-300 mb-6">Service Client</h3>
+                <h3 class="text-lg font-semibold text-emerald-300 mb-6">Pelayanan pelanggan</h3>
                 <ul class="space-y-3">
-                    <li><a href="{{ route('contact.show') }}" class="text-gray-300 hover:text-amber-300 transition-colors">Contactez-nous</a></li>
-                    <li><a href="{{ route('shipping-returns') }}" class="text-gray-300 hover:text-amber-300 transition-colors">Livraison & Retours</a></li>
-                    <li><a href="{{ route('faq') }}" class="text-gray-300 hover:text-amber-300 transition-colors">FAQ</a></li>
-                    <li><a href="{{ route('size-guide') }}" class="text-gray-300 hover:text-amber-300 transition-colors">Guide des Tailles</a></li>
+                    <li><a href="{{ route('contact.show') }}" class="text-gray-300 hover:text-amber-300 transition-colors">Hubungi kami</a></li>
+                    <li><a href="{{ route('shipping-returns') }}" class="text-gray-300 hover:text-amber-300 transition-colors">Pengiriman & Pengembalian</a></li>
+                    <li><a href="{{ route('faq') }}" class="text-gray-300 hover:text-amber-300 transition-colors">Pertanyaan yang Sering Diajukan (FAQ)</a></li>
+                    <li><a href="{{ route('size-guide') }}" class="text-gray-300 hover:text-amber-300 transition-colors">Panduan Ukuran</a></li>
 
                 </ul>
             </div>
 
             <!-- Contact Info -->
             <div>
-                <h3 class="text-lg font-semibold text-emerald-300 mb-6">Contact</h3>
+                <h3 class="text-lg font-semibold text-emerald-300 mb-6">Kontak</h3>
                 <address class="not-italic text-gray-300 space-y-3">
                     <div class="flex items-start">
                         <svg class="h-5 w-5 text-amber-300 mt-0.5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
-                        <span>123 Rue des Bijoux, 75001 fes , Maroce</span>
+                        <span>Bogor Tajurhalang 16320</span>
                     </div>
                     <div class="flex items-center">
                         <svg class="h-5 w-5 text-amber-300 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                        <a href="tel:+33123456789" class="hover:text-amber-300 transition-colors">+33 1 23 45 67 89</a>
+                        <a href="tel:+33123456789" class="hover:text-amber-300 transition-colors">+62 85810435476</a>
                     </div>
                     <div class="flex items-center">
                         <svg class="h-5 w-5 text-amber-300 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <a href="mailto:contact@emeraude-jewelry.com" class="hover:text-amber-300 transition-colors">contact@emeraude-jewelry.com</a>
+                        <a href="mailto:contact@emeraude-jewelry.com" class="hover:text-amber-300 transition-colors">lasvaradecorindonesia.com</a>
                     </div>
                 </address>
             </div>
@@ -87,7 +88,7 @@
         <!-- Bottom Bar -->
         <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p class="text-gray-400 text-sm mb-4 md:mb-0">
-                &copy; 2023 Emeraude Jewelry. Tous droits réservés.
+                &copy; 2026 Lasvara Decor ID. Semua hak dilindungi undang-undang.
             </p>
 
         </div>

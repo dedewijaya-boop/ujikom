@@ -33,8 +33,9 @@
                         </div>
                         
                         <div class="col-span-3 sm:col-span-1">
-                            <label for="prix" class="block text-sm font-medium text-gray-700">Price</label>
-                            <input type="number" step="0.01" name="prix" id="prix" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <label for="prix" class="block text-sm font-medium text-gray-700">Harga (Rp)</label>
+                            <input type="number" step="0.01" name="prix" id="prix" placeholder="100000" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <p class="mt-1 text-sm text-gray-500">Masukkan harga tanpa simbol, misal 100000</p>
                             @error('prix')
                                 <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                             @enderror

@@ -47,7 +47,7 @@
                 <div class="md:w-1/2 p-6">
                     <div class="rounded-lg overflow-hidden">
                         @if($product->image)
-                        <img src="{{ asset('storage/'.$product->image) }}" alt="{{ $product->nom }}" class="w-full h-auto object-cover">
+                        <img src="{{ image_url($product->image) }}" alt="{{ $product->nom }}" class="w-full h-auto object-cover">
                         @else
                         <div class="bg-gray-100 aspect-square flex items-center justify-center">
                             <svg class="w-1/2 h-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,14 +120,14 @@
                     <div class="mt-6">
                         @if($product->on_sale)
                         <div class="flex items-center">
-                            <span class="text-3xl font-bold text-gray-900">{{ number_format($product->sale_price, 2) }} DH</span>
-                            <span class="ml-3 text-xl text-gray-500 line-through">{{ number_format($product->prix, 2) }} DH</span>
+                            <span class="text-3xl font-bold text-gray-900">{{ rupiah($product->sale_price) }}</span>
+                            <span class="ml-3 text-xl text-gray-500 line-through">{{ rupiah($product->prix) }}</span>
                             <span class="ml-3 px-2 py-1 bg-red-100 text-red-800 text-sm font-bold rounded-full">
                                 -{{ $product->discount_percent }}%
                             </span>
                         </div>
                         @else
-                        <span class="text-3xl font-bold text-gray-900">{{ number_format($product->prix, 2) }} DH</span>
+                        <span class="text-3xl font-bold text-gray-900">{{ rupiah($product->prix) }}</span>
                         @endif
                     </div>
                     
@@ -242,7 +242,7 @@
                     <a href="{{ route('products.show', $relatedProduct) }}" class="block">
                         <div class="relative pb-[100%] overflow-hidden">
                             @if($relatedProduct->image)
-                                <img src="{{ asset('storage/'.$relatedProduct->image) }}" 
+                                <img src="{{ image_url($relatedProduct->image) }}" 
                                      alt="{{ $relatedProduct->nom }}" 
                                      class="absolute h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
                             @else
@@ -267,14 +267,14 @@
                             <div>
                                 @if($relatedProduct->on_sale)
                                     <span class="text-lg font-bold text-gray-900">
-                                        {{ number_format($relatedProduct->sale_price, 2) }} DH
+                                        {{ rupiah($relatedProduct->sale_price) }}
                                     </span>
                                     <span class="text-sm text-gray-500 line-through ml-2">
-                                        {{ number_format($relatedProduct->prix, 2) }} DH
+                                        {{ rupiah($relatedProduct->prix) }}
                                     </span>
                                 @else
                                     <span class="text-lg font-bold text-gray-900">
-                                        {{ number_format($relatedProduct->prix, 2) }} DH
+                                        {{ rupiah($relatedProduct->prix) }}
                                     </span>
                                 @endif
                             </div>

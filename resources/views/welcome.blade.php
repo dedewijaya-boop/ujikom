@@ -17,29 +17,35 @@
         
             <!-- Make hero section  -->
             <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 relative min-h-[50vh] flex items-center">
-                <!-- Background image -->
                 <div class="absolute inset-0 overflow-hidden">
-                    <img src="https://images.pexels.com/photos/12495610/pexels-photo-12495610.jpeg" 
-                 alt="Luxury gold chain jewelry"  
-                         class="w-full h-full object-cover object-center">
-                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-                </div>
+
+    <!-- Grid background images -->
+    <div class="grid grid-cols-3 h-full w-full">
+        <img src="{{ asset('images/poster vintage.jpeg') }}" class="w-full h-full object-cover">
+        <img src="{{ asset('images/poster dinding.png') }}" class="w-full h-full object-cover">
+        <img src="{{ asset('images/oasis.png') }}" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+</div>
         
                 <!-- Content container -->
                 <div class="relative w-full">
                     <div class="text-left">
                         <h1 class="text-4xl md:text-5xl font-bold text-yellow-300 tracking-tight">
-                            Bienvenue chez <span class="text-emerald-300">Emeraude Jewelry</span>
+                            Selamat Datang Di <span class="text-emerald-300">Lasvara Decor ID</span>
                         </h1>
                         <p class="mt-4 text-lg text-gray-200 max-w-lg">
-                            Découvrez nos collections exclusives de bijoux artisanaux
+                            Temukan koleksi dekorasi papan MDF unik untuk mempercantik toko dan ruangan Anda.
                         </p>
                     </div>
         
                     <!-- Call-to-action button moved to bottom-right -->
                     <div class="absolute bottom right-8">
                         <a href="{{ route('shop') }}" class="px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 transition duration-300">
-                            Voir nos créations
+                            Lihat kreasi kami
                         </a>
                         
                     </div>
@@ -50,7 +56,7 @@
 
     <!-- Categories Section -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Acheter par catégorie</h2>
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Belanja berdasarkan kategori</h2>
         
         @if($categories->count() > 0)
         <div class="relative">
@@ -60,7 +66,7 @@
                <a href="{{ route('shop', ['category' => $category->id]) }}" class="flex-shrink-0 relative group w-48 h-64 rounded-2xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
                     <!-- Category Image -->
                     @if($category->image)
-                    <img src="{{ asset('storage/' . $category->image) }}" 
+                    <img src="{{ image_url($category->image) }}" 
                          alt="{{ $category->nom }}" 
                          class="w-full h-full object-cover">
                     @else
@@ -91,12 +97,12 @@
         <!-- View all button -->
         <div class="text-center mt-8">
             <a href="{{ route('admin.categories.index') }}" class="inline-block px-6 py-3 border border-emerald-600 text-emerald-600 font-medium rounded-full hover:bg-emerald-600 hover:text-white transition duration-300">
-                Voir toutes les catégories →
+                Lihat semua kategori →
             </a>
         </div>
         @else
         <div class="text-center py-12">
-            <p class="text-gray-500">Aucune catégorie disponible pour le moment</p>
+            <p class="text-gray-500">Tidak ada kategori yang tersedia saat ini.</p>
         </div>
         @endif
     </div>
@@ -104,9 +110,9 @@
    <!-- Best Sellers Section -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900">Nos Best Sellers</h2>
+        <h2 class="text-3xl font-bold text-gray-900">Produk Terlaris Kami</h2>
         <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
-            Découvrez nos bijoux les plus populaires
+            Temukan perhiasan kami yang paling populer.
         </p>
     </div>
 
@@ -130,7 +136,7 @@
                 <a href="{{ route('products.show', $product) }}" class="block">
                     <div class="relative pb-[100%] overflow-hidden">
                         @if($product->image)
-                            <img src="{{ asset('storage/'.$product->image) }}" 
+                            <img src="{{ image_url($product->image) }}" 
                                  alt="{{ $product->name }}" 
                                  class="absolute h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
                         @else
@@ -195,14 +201,14 @@
                         <div>
                             @if($product->on_sale)
                                 <span class="text-lg font-bold text-gray-900">
-                                    {{ number_format($product->prix, 2) }} DH
+                                    {{ rupiah($product->prix) }}
                                 </span>
                                 <span class="text-sm text-gray-500 line-through ml-2">
-                                    {{ number_format($product->prix, 2) }} DH
+                                    {{ rupiah($product->prix) }}
                                 </span>
                             @else
                                 <span class="text-lg font-bold text-gray-900">
-                                    {{ number_format($product->prix, 2) }} DH
+                                    {{ rupiah($product->prix) }}
                                 </span>
                             @endif
                         </div>
@@ -221,13 +227,13 @@
         </div>
     @else
         <div class="text-center py-12">
-            <p class="text-gray-500">Aucun best seller disponible pour le moment</p>
+            <p class="text-gray-500">Tidak ada buku terlaris yang tersedia saat ini.</p>
         </div>
     @endif
 
     <div class="mt-12 text-center">
         <a href="{{ route('shop') }}" class="inline-flex items-center px-6 py-3 border border-emerald-600 text-emerald-600 font-medium rounded-full hover:bg-emerald-600 hover:text-white transition duration-300">
-            Voir tous les produits
+            Lihat semua produk
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
@@ -237,9 +243,9 @@
 <!-- Nouveaux Produits Section -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-900">Nos Nouveautés</h2>
+        <h2 class="text-3xl font-bold text-gray-900">Produk Baru Kami</h2>
         <p class="mt-4 max-w-2xl text-xl text-gray-600 mx-auto">
-            Découvrez nos dernières créations exclusives
+            Temukan kreasi eksklusif terbaru kami
         </p>
     </div>
 
@@ -256,7 +262,7 @@
                 <a href="{{route('products.show', $product)}}" class="block">
                     <div class="relative pb-[100%] overflow-hidden">
                         @if($product->image)
-                            <img src="{{ asset('storage/'.$product->image) }}" 
+                            <img src="{{ image_url($product->image) }}" 
                                  alt="{{ $product->nom }}" 
                                  class="absolute h-full w-full object-cover group-hover:scale-105 transition-transform duration-500">
                         @else
@@ -286,7 +292,7 @@
                     <!-- Price -->
                     <div class="mt-3 flex items-center justify-between">
                         <span class="text-lg font-bold text-gray-900">
-                            {{ number_format($product->prix, 2) }} DH
+                            {{ rupiah($product->prix) }}
                         </span>
                         <form action="{{ route('cart.add', $product->id) }}" method="POST">
                             @csrf
@@ -304,7 +310,7 @@
         
         <div class="mt-12 text-center">
             <a href="{{ route('shop') }}" class="inline-flex items-center px-6 py-3 border border-emerald-600 text-emerald-600 font-medium rounded-full hover:bg-emerald-600 hover:text-white transition duration-300">
-                Voir toute la collection
+                Lihat seluruh koleksi
                 <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
@@ -312,7 +318,7 @@
         </div>
     @else
         <div class="text-center py-12">
-            <p class="text-gray-500">Aucun nouveau produit disponible pour le moment</p>
+            <p class="text-gray-500">Tidak ada produk baru yang tersedia saat ini.</p>
         </div>
     @endif
 </div>

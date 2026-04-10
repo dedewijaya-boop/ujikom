@@ -20,7 +20,7 @@
         <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <div>
                 <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200">
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->nom }}" class="h-full w-full object-cover object-center">
+                    <img src="{{ image_url($product->image) }}" alt="{{ $product->nom }}" class="h-full w-full object-cover object-center">
                 </div>
             </div>
             <div>
@@ -38,9 +38,9 @@
                         </dd>
                     </div>
                     <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
-                        <dt class="text-sm font-medium text-gray-500">Price</dt>
+                        <dt class="text-sm font-medium text-gray-500">Harga</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                            ${{ number_format($product->prix, 2) }}
+                            {{ rupiah($product->prix) }}
                         </dd>
                     </div>
                     <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">

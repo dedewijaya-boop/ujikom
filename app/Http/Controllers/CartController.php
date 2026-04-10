@@ -46,8 +46,9 @@ public function add(Request $request, $productId)
 
     session()->put('cart', $cart);
     
-    return redirect()->back()->with('success', 'Produit ajouté au panier!');
+    return redirect()->back()->with('success', 'Produk berhasil ditambahkan ke keranjang!');
 }
+
     public function update(Request $request)
     {
         if ($request->id && $request->quantity) {

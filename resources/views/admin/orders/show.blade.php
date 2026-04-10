@@ -96,7 +96,7 @@
                     <div class="px-6 py-4 flex">
                         <div class="flex-shrink-0 h-20 w-20 rounded-md overflow-hidden border border-gray-200">
                             @if($item->product->image)
-                            <img src="{{ asset('storage/'.$item->product->image) }}" class="h-full w-full object-cover">
+                            <img src="{{ image_url($item->product->image) }}" class="h-full w-full object-cover">
                             @else
                             <div class="h-full w-full bg-gray-100 flex items-center justify-center">
                                 <svg class="h-10 w-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,11 +108,11 @@
                         <div class="ml-4 flex-1">
                             <div class="flex justify-between">
                                 <h3 class="text-sm font-medium text-gray-900">{{ $item->product->nom }}</h3>
-                                <p class="ml-4 text-sm font-medium text-gray-900">{{ number_format($item->price, 2) }} DH</p>
+                                <p class="ml-4 text-sm font-medium text-gray-900">{{ rupiah($item->price) }}</p>
                             </div>
                             <div class="mt-1 text-sm text-gray-500">SKU: {{ $item->product->sku ?? 'N/A' }}</div>
                             <div class="mt-1 text-sm text-gray-500">Quantity: {{ $item->quantity }}</div>
-                            <div class="mt-1 text-sm font-medium text-gray-900">Total: {{ number_format($item->price * $item->quantity, 2) }} DH</div>
+                            <div class="mt-1 text-sm font-medium text-gray-900">Total: {{ rupiah($item->price * $item->quantity) }}</div>
                         </div>
                     </div>
                     @endforeach
@@ -120,21 +120,21 @@
                 <div class="px-6 py-4 border-t border-gray-200">
                     <div class="flex justify-between">
                         <div class="text-sm text-gray-500">Subtotal</div>
-                        <div class="text-sm font-medium">{{ number_format($order->subtotal, 2) }} DH</div>
+                        <div class="text-sm font-medium">{{ rupiah($order->subtotal) }}</div>
                     </div>
                     <div class="flex justify-between mt-2">
                         <div class="text-sm text-gray-500">Shipping</div>
-                        <div class="text-sm font-medium">{{ number_format($order->shipping, 2) }} DH</div>
+                        <div class="text-sm font-medium">{{ rupiah($order->shipping) }}</div>
                     </div>
                     @if($order->discount > 0)
                     <div class="flex justify-between mt-2">
                         <div class="text-sm text-gray-500">Discount</div>
-                        <div class="text-sm font-medium text-green-600">-{{ number_format($order->discount, 2) }} DH</div>
+                        <div class="text-sm font-medium text-green-600">-{{ rupiah($order->discount) }}</div>
                     </div>
                     @endif
                     <div class="flex justify-between mt-4 pt-4 border-t border-gray-200">
                         <div class="text-base font-medium">Total</div>
-                        <div class="text-base font-bold">{{ number_format($order->total, 2) }} DH</div>
+                        <div class="text-base font-bold">{{ rupiah($order->total) }}</div>
                     </div>
                 </div>
             </div>

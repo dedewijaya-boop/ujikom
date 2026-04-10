@@ -38,18 +38,18 @@
             @foreach($order->items as $item)
             <tr>
                 <td>{{ $item->product->nom }}</td>
-                <td>{{ number_format($item->price, 2) }} DH</td>
+                <td>{{ rupiah($item->price) }}</td>
                 <td>{{ $item->quantity }}</td>
-                <td>{{ number_format($item->price * $item->quantity, 2) }} DH</td>
+                <td>{{ rupiah($item->price * $item->quantity) }}</td>
             </tr>
             @endforeach
         </tbody>
     </table>
 
     <div class="total">
-        <h3>Subtotal: {{ number_format($order->subtotal, 2) }} DH</h3>
-        <h3>Shipping: {{ number_format($order->shipping, 2) }} DH</h3>
-        <h2>Grand Total: {{ number_format($order->total, 2) }} DH</h2>
+        <h3>Subtotal: {{ rupiah($order->subtotal) }}</h3>
+        <h3>Shipping: {{ rupiah($order->shipping) }}</h3>
+        <h2>Grand Total: {{ rupiah($order->total) }}</h2>
     </div>
 
     <div class="footer">

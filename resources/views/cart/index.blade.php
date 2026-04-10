@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg-gray-50 py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-8">Votre Panier</h1>
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Keranjang Belanja Anda</h1>
         
         @if (session('success'))
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
@@ -16,17 +16,17 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
-                <h2 class="text-xl font-medium text-gray-900 mt-4">Votre panier est vide</h2>
-                <p class="mt-2 text-gray-600">Parcourez nos produits et ajoutez des articles à votre panier</p>
+                <h2 class="text-xl font-medium text-gray-900 mt-4">Keranjang Anda masih kosong</h2>
+                <p class="mt-2 text-gray-600">Silakan lihat produk kami dan tambahkan poster MDF ke keranjang Anda</p>
                 <a href="{{ route('shop') }}" class="mt-6 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600 hover:bg-emerald-700">
-                    Continuer vos achats
+                    Lanjutkan Belanja
                 </a>
             </div>
         @else
             <div class="bg-white shadow overflow-hidden sm:rounded-lg">
                 <div class="px-4 py-5 sm:px-6">
                     <h3 class="text-lg leading-6 font-medium text-gray-900">
-                        Récapitulatif de commande
+                        Ringkasan Pesanan
                     </h3>
                 </div>
                 <div class="border-t border-gray-200">
@@ -34,19 +34,19 @@
                         <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Produit
+                                    Produk
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Prix
+                                    Harga
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Quantité
+                                    Jumlah
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                     Total
                                 </th>
                                 <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Actions</span>
+                                    <span class="sr-only">Aksi</span>
                                 </th>
                             </tr>
                         </thead>
@@ -58,7 +58,7 @@
                                         <div class="flex items-center">
                                             <div class="flex-shrink-0 h-20 w-20">
                                                 @if($item['product']->image)
-                                                    <img class="h-20 w-20 object-cover rounded" src="{{ asset('storage/'.$item['product']->image) }}" alt="{{ $item['product']->nom }}">
+                                                    <img class="h-20 w-20 object-cover rounded" src="{{ image_url($item['product']->image) }}" alt="{{ $item['product']->nom }}">
                                                 @else
                                                     <div class="h-20 w-20 bg-gray-100 rounded flex items-center justify-center">
                                                         <svg class="h-10 w-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,10 +76,10 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900">
                                             @if($item['product']->on_sale)
-                                                <span class="font-bold">{{ number_format($item['product']->sale_price, 2) }} DH</span>
-                                                <span class="text-xs text-gray-500 line-through ml-1">{{ number_format($item['product']->prix, 2) }} DH</span>
+                                                <span class="font-bold">{{ rupiah($item['product']->sale_price) }}</span>
+                                                <span class="text-xs text-gray-500 line-through ml-1">{{ rupiah($item['product']->prix) }}</span>
                                             @else
-                                                <span class="font-bold">{{ number_format($item['product']->prix, 2) }} DH</span>
+                                                <span class="font-bold">{{ rupiah($item['product']->prix) }}</span>
                                             @endif
                                         </div>
                                     </td>
@@ -96,7 +96,7 @@
                                             $price = $item['product']->on_sale ? $item['product']->sale_price : $item['product']->prix;
                                             $itemTotal = $price * $item['quantity'];
                                         @endphp
-                                        {{ number_format($itemTotal, 2) }} DH
+                                        {{ rupiah($itemTotal) }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                         <form action="{{ route('cart.remove') }}" method="POST">
@@ -117,14 +117,14 @@
                 </div>
                 <div class="px-4 py-4 bg-gray-50 sm:px-6 flex justify-between items-center">
                     <div class="text-lg font-bold">
-                        Total: {{ number_format($total, 2) }} DH
+                        Total Belanja: {{ rupiah($total) }}
                     </div>
                     <div class="space-x-4">
                         <a href="{{ route('shop') }}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
-                            Continuer vos achats
+                            Lanjutkan Belanja
                         </a>
                         <a href="{{ route('checkout') }}" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-md font-medium text-center">
-    Passer la commande
+    Checkout Pesanan
 </a>
                     </div>
                 </div>

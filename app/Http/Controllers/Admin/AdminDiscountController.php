@@ -41,23 +41,25 @@ class AdminDiscountController extends Controller
         Discount::create($validated);
 
         return redirect()->route('admin.discounts.index')
-                         ->with('success', 'Remise créée avec succès');
+                         ->with('success', 'Diskon berhasil dibuat');
     }
 
     /**
      * Show the form for editing the specified discount.
      */
-    public function edit(Discount $discount)
+    public function edit($id)
     {
+        $discount = Discount::findOrFail($id);
         return view('admin.discounts.edit', compact('discount'));
     }
     /**
      * Update the specified discount.
      */
-    public function update(Request $request, Discount $discount)
+    public function update(Request $request, $id)
     {
+        $discount = Discount::findOrFail($id);
         $validated = $request->validate([
-            'code' => 'required|string|max:255|unique:remises,code,'.$discount->remise_id.',remise_id',
+            'code' => 'required|string|max:255|unique:remises,code,'.$discount->id,
             'montant_remise' => 'required|numeric|min:0',
             'type' => 'required|in:percentage,fixed',
             'date_expiration' => 'nullable|date',
@@ -67,17 +69,18 @@ class AdminDiscountController extends Controller
         $discount->update($validated);
 
         return redirect()->route('admin.discounts.index')
-                         ->with('success', 'Remise mise à jour avec succès');
+                         ->with('success', 'Diskon berhasil diperbarui');
     }
 
     /**
      * Remove the specified discount.
      */
-    public function destroy(Discount $discount)
+    public function destroy($id)
     {
+        $discount = Discount::findOrFail($id);
         $discount->delete();
 
         return redirect()->route('admin.discounts.index')
-                         ->with('success', 'Remise supprimée avec succès');
+                         ->with('success', 'Diskon berhasil dihapus');
     }
 }

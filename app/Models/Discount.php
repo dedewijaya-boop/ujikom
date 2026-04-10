@@ -9,7 +9,8 @@ use Carbon\Carbon;
 class Discount extends Model
 {
     protected $table = 'remises';
-    protected $primaryKey = 'remise_id';
+    public $incrementing = true;
+    protected $keyType = 'int';
 
   
     protected $fillable = [
@@ -18,6 +19,10 @@ class Discount extends Model
         'type',
         'date_expiration',
         'max_uses',
+    ];
+
+    protected $casts = [
+        'date_expiration' => 'datetime',
     ];
 
     public function commandes(): HasMany
@@ -36,11 +41,6 @@ class Discount extends Model
         // Check usage limit
         
         return true;
-    }
-   
-    public function getRouteKeyName()
-    {
-        return 'remise_id'; // Use remise_id for route binding
     }
 }
 

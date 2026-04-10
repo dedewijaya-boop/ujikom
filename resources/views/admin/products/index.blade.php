@@ -41,7 +41,7 @@
                         <div class="flex-shrink-0 h-10 w-10">
                             @if(!empty($image))
                             <img class="h-10 w-10 rounded-full"
-                                src="{{ asset('storage/' . $image) }}"
+                                src="{{ image_url($image) }}"
                                 alt="Product Image">
                             @else
                             <div class="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center">
@@ -64,12 +64,12 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="text-sm text-gray-900">
-                            {{ is_object($product) ? ($product->category->nom ?? 'N/A') : ($productArray['category']['nom'] ?? 'N/A') }}
+                            {{ rupiah($productArray['prix'] ?? 0) }}
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="text-sm text-gray-900">
-                            ${{ number_format($productArray['prix'] ?? 0, 2) }}
+                            {{ is_object($product) ? ($product->category->nom ?? 'N/A') : ($productArray['category']['nom'] ?? 'N/A') }}
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">

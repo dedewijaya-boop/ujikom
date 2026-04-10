@@ -40,7 +40,7 @@
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
                              <!-- ZIDO HQDI HNA  -->
-                            <a href="{{ route('categorie.show' , $category->id ) }}">
+                            <a href="{{ route('categories.show' , $category->id ) }}">
 
                             <div class="text-sm font-medium text-gray-900">
                                 {{ $category->nom }}

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class AdminProductController extends Controller
 {
@@ -36,7 +37,12 @@ public function create()
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nom' => 'required|string|max:255',
+            'nom' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('products', 'nom'),
+            ],
             'description' => 'required|string',
             'prix' => 'required|numeric|min:0',
             'category_id' => 'required|exists:categories,id',
@@ -77,7 +83,12 @@ public function create()
     public function update(Request $request, Product $product)
     {
         $validated = $request->validate([
-            'nom' => 'required|string|max:255',
+            'nom' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('products', 'nom')->ignore($product->id),
+            ],
             'description' => 'required|string',
             'prix' => 'required|numeric|min:0',
             'category_id' => 'required|exists:categories,id',
@@ -104,7 +115,11 @@ public function create()
      */
     public function destroy(Product $product)
     {
-        // Delete associated image
+        if ($product->orderItems()->exists()) {
+            return redirect()->route('admin.products.index')
+                ->with('error', 'Produk ini tidak dapat dihapus karena sudah ada di pesanan.');
+        }
+
         if ($product->image) {
             Storage::disk('public')->delete($product->image);
         }

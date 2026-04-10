@@ -132,7 +132,7 @@
             <div class="py-4 flex">
                 <div class="flex-shrink-0 h-20 w-20 rounded-md overflow-hidden">
                     @if(!empty($item['image']))
-                    <img src="{{ asset('storage/'.$item['image']) }}" 
+                    <img src="{{ image_url($item['image']) }}" 
                         class="h-full w-full object-cover"
                         alt="{{ $item['name'] }}">
                     @else
@@ -150,7 +150,7 @@
                             {{ $item['name'] }}
                         </h3>
                         <p class="ml-4 text-sm font-medium text-gray-900">
-                            {{ number_format($item['price'], 2) }} DH
+                            {{ rupiah($item['price']) }}
                         </p>
                     </div>
                     
@@ -159,7 +159,7 @@
                             Quantité: {{ $item['quantity'] }}
                         </p>
                         <p class="text-sm font-medium text-gray-900">
-                            {{ number_format($item['price'] * $item['quantity'], 2) }} DH
+                            {{ rupiah($item['price'] * $item['quantity']) }}
                         </p>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                     <div class="mt-6 border-t border-gray-200 pt-6">
                         <div class="flex justify-between text-base font-medium text-gray-900">
                             <p>Total</p>
-                            <p>{{ number_format($total, 2) }} DH</p>
+                            <p>{{ rupiah($total) }}</p>
                         </div>
                     </div>
                 </div>

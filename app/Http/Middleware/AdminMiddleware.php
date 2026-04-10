@@ -11,21 +11,22 @@ class AdminMiddleware
 {
     /**
      * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Option 1: Using Auth facade (recommended)
-        if (Auth::check() && Auth::user()->is_admin) {
+        // Cek apakah user sudah login
+        if (!Auth::check()) {
+            return redirect('/login')->with('error', 'Silakan login terlebih dahulu');
+        }
+
+        $user = Auth::user();
+
+        // Cek apakah user adalah admin (role = 'admin')
+        if ($user && $user->role === 'admin') {
             return $next($request);
         }
 
-        // Option 2: Using auth() helper
-        // if (auth()->check() && auth()->user()->is_admin) {
-        //     return $next($request);
-        // }
-
-        return redirect('/')->with('error', 'Unauthorized access');
+        // Jika bukan admin
+        return redirect('/')->with('error', 'Akses ditolak! Kamu bukan admin.');
     }
 }

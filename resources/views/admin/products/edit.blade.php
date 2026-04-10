@@ -39,8 +39,9 @@
 
                     <div class="grid grid-cols-3 gap-6">
                         <div class="col-span-3 sm:col-span-1">
-                            <label for="prix" class="block text-sm font-medium text-gray-700">Price ($)</label>
-                            <input type="number" step="0.01" name="prix" id="prix" value="{{ old('prix', $product->prix ?? '') }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <label for="prix" class="block text-sm font-medium text-gray-700">Harga (Rp)</label>
+                            <input type="number" step="0.01" name="prix" id="prix" value="{{ old('prix', $product->prix ?? '') }}" placeholder="100000" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                            <p class="mt-1 text-sm text-gray-500">Masukkan harga tanpa simbol, misal 100000</p>
                             @error('prix')
                                 <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                             @enderror
@@ -66,7 +67,7 @@
                         <label class="block text-sm font-medium text-gray-700">Product Image</label>
                         @if(isset($product) && $product->image)
                             <div class="mt-2">
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="Current product image" class="h-32 w-32 object-cover">
+                                <img src="{{ image_url($product->image) }}" alt="Current product image" class="h-32 w-32 object-cover">
                             </div>
                         @endif
                         <div class="mt-2">
