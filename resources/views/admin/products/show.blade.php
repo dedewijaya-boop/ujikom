@@ -11,7 +11,11 @@
         </div>
         <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
             <a href="{{ route('admin.products.edit', $product->id) }}" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">
+<<<<<<< HEAD
                 Edit Product
+=======
+                Ubah Produk
+>>>>>>> 4ec54b9e (update terbaru)
             </a>
         </div>
     </div>
@@ -26,13 +30,21 @@
             <div>
                 <dl class="divide-y divide-gray-200">
                     <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+<<<<<<< HEAD
                         <dt class="text-sm font-medium text-gray-500">Name</dt>
+=======
+                        <dt class="text-sm font-medium text-gray-500">Nama</dt>
+>>>>>>> 4ec54b9e (update terbaru)
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             {{ $product->nom }}
                         </dd>
                     </div>
                     <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+<<<<<<< HEAD
                         <dt class="text-sm font-medium text-gray-500">Category</dt>
+=======
+                        <dt class="text-sm font-medium text-gray-500">Kategori</dt>
+>>>>>>> 4ec54b9e (update terbaru)
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             {{ $product->category->nom }}
                         </dd>
@@ -44,12 +56,17 @@
                         </dd>
                     </div>
                     <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+<<<<<<< HEAD
                         <dt class="text-sm font-medium text-gray-500">Description</dt>
+=======
+                        <dt class="text-sm font-medium text-gray-500">Deskripsi</dt>
+>>>>>>> 4ec54b9e (update terbaru)
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             {{ $product->description }}
                         </dd>
                     </div>
                     <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+<<<<<<< HEAD
                         <dt class="text-sm font-medium text-gray-500">Created At</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             {{ $product->created_at->format('M d, Y H:i') }}
@@ -59,6 +76,17 @@
                         <dt class="text-sm font-medium text-gray-500">Last Updated</dt>
                         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                             {{ $product->updated_at->format('M d, Y H:i') }}
+=======
+                        <dt class="text-sm font-medium text-gray-500">Dibuat Pada</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $product->created_at->translatedFormat('d M Y H:i') }}
+                        </dd>
+                    </div>
+                    <div class="py-4 sm:grid sm:grid-cols-3 sm:gap-4">
+                        <dt class="text-sm font-medium text-gray-500">Terakhir Diperbarui</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                            {{ $product->updated_at->translatedFormat('d M Y H:i') }}
+>>>>>>> 4ec54b9e (update terbaru)
                         </dd>
                     </div>
                 </dl>

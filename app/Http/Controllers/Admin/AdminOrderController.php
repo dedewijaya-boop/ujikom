@@ -32,6 +32,10 @@ class AdminOrderController extends Controller
         ]);
 
         $order->update($validated);
+<<<<<<< HEAD
         return redirect()->route('admin.orders.index')->with('success', 'Order updated successfully');
+=======
+        return redirect()->route('admin.orders.index')->with('success', 'Pesanan berhasil diperbarui');
+>>>>>>> 4ec54b9e (update terbaru)
     }
 }

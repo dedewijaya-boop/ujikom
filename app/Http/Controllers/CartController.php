@@ -55,7 +55,11 @@ public function add(Request $request, $productId)
             $cart = session()->get('cart');
             $cart[$request->id]["quantity"] = $request->quantity;
             session()->put('cart', $cart);
+<<<<<<< HEAD
             return redirect()->back()->with('success', 'Panier mis à jour');
+=======
+            return redirect()->back()->with('success', 'Keranjang berhasil diperbarui');
+>>>>>>> 4ec54b9e (update terbaru)
         }
     }
 
@@ -67,7 +71,11 @@ public function add(Request $request, $productId)
                 unset($cart[$request->id]);
                 session()->put('cart', $cart);
             }
+<<<<<<< HEAD
             return redirect()->back()->with('success', 'Produit supprimé');
+=======
+            return redirect()->back()->with('success', 'Produk berhasil dihapus dari keranjang');
+>>>>>>> 4ec54b9e (update terbaru)
         }
     }
 }

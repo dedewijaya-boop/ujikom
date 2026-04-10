@@ -21,7 +21,11 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
+<<<<<<< HEAD
             <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+=======
+            <x-input-label for="password_confirmation" :value="__('Konfirmasi Kata Sandi')" />
+>>>>>>> 4ec54b9e (update terbaru)
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                                 type="password"
@@ -32,7 +36,11 @@
 
         <div class="flex items-center justify-end mt-4">
             <x-primary-button>
+<<<<<<< HEAD
                 {{ __('Reset Password') }}
+=======
+                {{ __('Atur Ulang Kata Sandi') }}
+>>>>>>> 4ec54b9e (update terbaru)
             </x-primary-button>
         </div>
     </form>

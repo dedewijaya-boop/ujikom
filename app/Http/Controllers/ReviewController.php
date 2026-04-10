@@ -31,7 +31,11 @@ class ReviewController extends Controller
             'commentaire' => $validated['commentaire']
         ]);
 
+<<<<<<< HEAD
         return back()->with('success', 'Merci pour votre avis!');
+=======
+        return back()->with('success', 'Terima kasih atas ulasan Anda!');
+>>>>>>> 4ec54b9e (update terbaru)
 
     } catch (\Exception $e) {
         return back()->with('error', 'Une erreur est survenue: '.$e->getMessage());

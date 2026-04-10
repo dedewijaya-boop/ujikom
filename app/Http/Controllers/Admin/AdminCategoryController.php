@@ -48,7 +48,11 @@ class AdminCategoryController extends Controller
         ]);
     
         return redirect()->route('admin.categories.index')
+<<<<<<< HEAD
                          ->with('success', 'Category created successfully.');
+=======
+                         ->with('success', 'Kategori berhasil ditambahkan.');
+>>>>>>> 4ec54b9e (update terbaru)
     }
     
     public function update(Request $request, Category $category)
@@ -70,7 +74,11 @@ class AdminCategoryController extends Controller
         $category->update($validated);
     
         return redirect()->route('admin.categories.index')
+<<<<<<< HEAD
                          ->with('success', 'Category updated successfully.');
+=======
+                         ->with('success', 'Kategori berhasil diperbarui.');
+>>>>>>> 4ec54b9e (update terbaru)
     }
     /**
      * Display the specified category.
@@ -97,12 +105,20 @@ class AdminCategoryController extends Controller
     {
         if ($category->products()->count() > 0) {
             return redirect()->back()
+<<<<<<< HEAD
                              ->with('error', 'Cannot delete category with associated products.');
+=======
+                             ->with('error', 'Kategori tidak dapat dihapus karena masih memiliki produk terkait.');
+>>>>>>> 4ec54b9e (update terbaru)
         }
 
         $category->delete();
 
         return redirect()->route('admin.categories.index')
+<<<<<<< HEAD
                          ->with('success', 'Category deleted successfully.');
+=======
+                         ->with('success', 'Kategori berhasil dihapus.');
+>>>>>>> 4ec54b9e (update terbaru)
     }
 }

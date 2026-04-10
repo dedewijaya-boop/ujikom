@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
     <title>Invoice #{{ $order->id }}</title>
+=======
+    <title>Faktur #{{ $order->id }}</title>
+>>>>>>> 4ec54b9e (update terbaru)
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
         
@@ -167,13 +171,22 @@
         <div class="header">
             <h1>{{ config('app.name') }}</h1>
             <div class="invoice-meta">
+<<<<<<< HEAD
                 <span class="invoice-number">Invoice #{{ $order->id }}</span>
                 <span class="invoice-date">Date: {{ $order->created_at->format('F j, Y') }}</span>
+=======
+                <span class="invoice-number">Faktur #{{ $order->id }}</span>
+                <span class="invoice-date">Tanggal: {{ $order->created_at->translatedFormat('d F Y') }}</span>
+>>>>>>> 4ec54b9e (update terbaru)
             </div>
         </div>
 
         <div class="customer-info">
+<<<<<<< HEAD
             <h2>Bill To:</h2>
+=======
+            <h2>Ditagihkan Kepada:</h2>
+>>>>>>> 4ec54b9e (update terbaru)
             <p><strong>{{ $order->user->name }}</strong></p>
             <p>{{ $order->shipping_address }}</p>
             <p>{{ $order->shipping_city }}, {{ $order->shipping_zip }}</p>
@@ -181,7 +194,11 @@
             
             <div style="margin-top: 15px;">
                 <span class="status-badge status-{{ $order->payment_status === 'paid' ? 'paid' : 'pending' }}">
+<<<<<<< HEAD
                     {{ ucfirst($order->payment_status) }}
+=======
+                    {{ $order->payment_status === 'paid' ? 'Lunas' : 'Menunggu Pembayaran' }}
+>>>>>>> 4ec54b9e (update terbaru)
                 </span>
                 <div class="payment-method">
                     @if($order->payment_method === 'credit_card')
@@ -201,9 +218,15 @@
         <table class="table">
             <thead>
                 <tr>
+<<<<<<< HEAD
                     <th>Product</th>
                     <th class="text-right">Price</th>
                     <th class="text-right">Quantity</th>
+=======
+                    <th>Produk</th>
+                    <th class="text-right">Harga</th>
+                    <th class="text-right">Jumlah</th>
+>>>>>>> 4ec54b9e (update terbaru)
                     <th class="text-right">Total</th>
                 </tr>
             </thead>
@@ -211,9 +234,15 @@
                 @foreach($order->items as $item)
                 <tr>
                     <td>{{ $item->product->nom }}</td>
+<<<<<<< HEAD
                     <td class="text-right">{{ number_format($item->price, 2) }} €</td>
                     <td class="text-right">{{ $item->quantity }}</td>
                     <td class="text-right">{{ number_format($item->price * $item->quantity, 2) }} €</td>
+=======
+                    <td class="text-right">{{ rupiah($item->price) }}</td>
+                    <td class="text-right">{{ $item->quantity }}</td>
+                    <td class="text-right">{{ rupiah($item->price * $item->quantity) }}</td>
+>>>>>>> 4ec54b9e (update terbaru)
                 </tr>
                 @endforeach
             </tbody>
@@ -222,6 +251,7 @@
         <div class="totals">
             @if($order->discount > 0)
             <div class="total-row">
+<<<<<<< HEAD
                 <span>Discount:</span>
                 <span>-{{ number_format($order->discount, 2) }} €</span>
             </div>
@@ -234,6 +264,20 @@
 <div class="footer">
             <p>Thank you for your business!</p>
             <p>If you have any questions about this invoice, please contact our support team.</p>
+=======
+                <span>Diskon:</span>
+                <span>-{{ rupiah($order->discount) }}</span>
+            </div>
+            @endif
+            <div class="total-row grand-total">
+                <span>Total Akhir:</span>
+                <span>{{ rupiah($order->total) }}</span>
+            </div>
+
+<div class="footer">
+            <p>Terima kasih atas kepercayaan Anda.</p>
+            <p>Jika ada pertanyaan terkait faktur ini, silakan hubungi tim dukungan kami.</p>
+>>>>>>> 4ec54b9e (update terbaru)
         </div>
 
 

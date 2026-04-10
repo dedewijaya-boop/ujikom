@@ -57,7 +57,11 @@ public function create()
         Product::create($validated);
 
         return redirect()->route('admin.products.index')
+<<<<<<< HEAD
                          ->with('success', 'Product created successfully.');
+=======
+                         ->with('success', 'Produk berhasil ditambahkan.');
+>>>>>>> 4ec54b9e (update terbaru)
     }
 
     /**
@@ -107,7 +111,11 @@ public function create()
         $product->update($validated);
 
         return redirect()->route('admin.products.index')
+<<<<<<< HEAD
                          ->with('success', 'Product updated successfully.');
+=======
+                         ->with('success', 'Produk berhasil diperbarui.');
+>>>>>>> 4ec54b9e (update terbaru)
     }
 
     /**
@@ -127,6 +135,10 @@ public function create()
         $product->delete();
 
         return redirect()->route('admin.products.index')
+<<<<<<< HEAD
                          ->with('success', 'Product deleted successfully.');
+=======
+                         ->with('success', 'Produk berhasil dihapus.');
+>>>>>>> 4ec54b9e (update terbaru)
     }
 }

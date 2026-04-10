@@ -18,7 +18,11 @@ class CheckRole
         $userRole = Auth::user()->role;
         
         if (!in_array($userRole, $roles)) {
+<<<<<<< HEAD
             abort(403, 'Unauthorized action.');
+=======
+            abort(403, 'Aksi tidak diizinkan.');
+>>>>>>> 4ec54b9e (update terbaru)
         }
 
         return $next($request);

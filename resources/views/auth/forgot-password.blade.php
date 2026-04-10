@@ -1,6 +1,10 @@
 <x-guest-layout>
     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+<<<<<<< HEAD
         {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+=======
+        {{ __('Lupa kata sandi? Tidak masalah. Masukkan alamat email Anda, kami akan mengirim tautan untuk mengatur ulang kata sandi.') }}
+>>>>>>> 4ec54b9e (update terbaru)
     </div>
 
     <!-- Session Status -->
@@ -18,7 +22,11 @@
 
         <div class="flex items-center justify-end mt-4">
             <x-primary-button>
+<<<<<<< HEAD
                 {{ __('Email Password Reset Link') }}
+=======
+                {{ __('Kirim Tautan Reset Kata Sandi') }}
+>>>>>>> 4ec54b9e (update terbaru)
             </x-primary-button>
         </div>
     </form>

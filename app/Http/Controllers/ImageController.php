@@ -17,11 +17,19 @@ class ImageController extends Controller
         
         // Security: Prevent directory traversal attacks
         if (strpos($fullPath, '..') !== false) {
+<<<<<<< HEAD
             abort(403, 'Forbidden');
         }
         
         if (!Storage::disk($disk)->exists($fullPath)) {
             abort(404, 'Image not found');
+=======
+            abort(403, 'Akses ditolak');
+        }
+        
+        if (!Storage::disk($disk)->exists($fullPath)) {
+            abort(404, 'Gambar tidak ditemukan');
+>>>>>>> 4ec54b9e (update terbaru)
         }
         
         $file = Storage::disk($disk)->get($fullPath);

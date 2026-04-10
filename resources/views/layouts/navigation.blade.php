@@ -25,7 +25,11 @@
                 @endphp
                 <!-- panier -->
                 <a href="{{ route('cart') }}" class="p-1 text-gray-400 hover:text-gray-500 relative">
+<<<<<<< HEAD
                     <span class="sr-only">Panier</span>
+=======
+                    <span class="sr-only">Keranjang</span>
+>>>>>>> 4ec54b9e (update terbaru)
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
@@ -54,12 +58,20 @@
                                     <div class="text-sm text-gray-500">{{ auth()->user()->email }}</div>
                                 </div>
                                 <div class="border-t border-gray-200"></div>
+<<<<<<< HEAD
                                 <x-dropdown-link :href="route('profile.edit')">Mon compte</x-dropdown-link>
+=======
+                                <x-dropdown-link :href="route('profile.edit')">Akun Saya</x-dropdown-link>
+>>>>>>> 4ec54b9e (update terbaru)
                                 <x-dropdown-link :href="route('orders.index')">Pesanan Saya</x-dropdown-link>
                                 <div class="border-t border-gray-200"></div>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
+<<<<<<< HEAD
                                     <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Déconnexion</x-dropdown-link>
+=======
+                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Keluar</x-dropdown-link>
+>>>>>>> 4ec54b9e (update terbaru)
                                 </form>
                             </x-slot>
                         </x-dropdown>
@@ -88,10 +100,17 @@
     <div x-show="open" class="sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Selamat Datang</a>
+<<<<<<< HEAD
             <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">À Propos de Nous</a>
             <a href="{{ route('shop') }}" class="{{ request()->routeIs('shop') ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Shop Now</a>
             <a href="{{ route('orders.index') }}" class="{{ request()->routeIs('orders.*') ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Pesanan Saya</a>
             <a href="{{ route('contact.show') }}" class="{{ request()->routeIs('contact.show') ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Nous contacter</a>
+=======
+            <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Tentang Kami</a>
+            <a href="{{ route('shop') }}" class="{{ request()->routeIs('shop') ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Belanja Sekarang</a>
+            <a href="{{ route('orders.index') }}" class="{{ request()->routeIs('orders.*') ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Pesanan Saya</a>
+            <a href="{{ route('contact.show') }}" class="{{ request()->routeIs('contact.show') ? 'bg-indigo-50 border-indigo-500 text-indigo-700' : 'text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800' }} block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Hubungi Kami</a>
+>>>>>>> 4ec54b9e (update terbaru)
         </div>
 
         @auth
@@ -108,13 +127,21 @@
                 </div>
             </div>
             <div class="mt-3 space-y-1">
+<<<<<<< HEAD
                 <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Mon compte</a>
+=======
+                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Akun Saya</a>
+>>>>>>> 4ec54b9e (update terbaru)
                 <a href="{{ route('orders.index') }}" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Pesanan Saya</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a href="{{ route('logout') }}" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100"
                        onclick="event.preventDefault(); this.closest('form').submit();">
+<<<<<<< HEAD
                         Déconnexion
+=======
+                        Keluar
+>>>>>>> 4ec54b9e (update terbaru)
                     </a>
                 </form>
             </div>
@@ -122,8 +149,13 @@
         @else
         <div class="pt-4 pb-3 border-t border-gray-200">
             <div class="space-y-1">
+<<<<<<< HEAD
                 <a href="{{ route('login') }}" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Connexion</a>
                 <a href="{{ route('register') }}" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Inscription</a>
+=======
+                <a href="{{ route('login') }}" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Masuk</a>
+                <a href="{{ route('register') }}" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Daftar</a>
+>>>>>>> 4ec54b9e (update terbaru)
             </div>
         </div>
         @endauth

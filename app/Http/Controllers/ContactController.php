@@ -24,6 +24,10 @@ public function submit(Request $request)
     // Send email
     Mail::to('progdevsita@gmail.com')->send(new ContactFormMail($validated));
 
+<<<<<<< HEAD
     return back()->with('success', 'Merci pour votre message! Nous vous contacterons bientôt.');
+=======
+    return back()->with('success', 'Terima kasih atas pesan Anda! Kami akan segera menghubungi Anda.');
+>>>>>>> 4ec54b9e (update terbaru)
 }
 }

@@ -39,7 +39,11 @@ public function index()
     }
 
     if (empty($cartItems)) {
+<<<<<<< HEAD
         return redirect()->route('cart')->with('error', 'Your cart is empty');
+=======
+        return redirect()->route('cart')->with('error', 'Keranjang belanja Anda kosong');
+>>>>>>> 4ec54b9e (update terbaru)
     }
 
     return view('checkout.index', [
